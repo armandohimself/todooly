@@ -36,15 +36,19 @@
 
 
 
+
+
+
 <br><br><br><br>
 
 
-1. Get Cordova Running on: 
 
 
-## iOS
 
 
+
+
+1. android cordova 
 ## Android
 
 npm install -g native-run
@@ -53,7 +57,6 @@ npm install -g ios-sim
 
 [install the Android SDK](https://stackoverflow.com/questions/29391511/where-is-android-sdk-root-and-how-do-i-set-it/30900424#30900424) - I'm on 17.0.2
 
-<-- CURRENT HEAD -->
 
 Terminal Error: Could not find an installed version of Gradle either in Android Studio,
 or on your system to install the gradle wrapper. Please include gradle 
@@ -124,6 +127,70 @@ POSSIBLE SOLUTIONS
 2. [continue reading what else emulation needs](https://developer.android.com/training/basics/firstapp/running-app)
 
 Was able to press the play button on Android Studio but the build doesn't work. 
+
+While running an emulation of a phone and running this command
+ionic cordova run android --livereload
+
+I was able to get the app to stick to the emulation device. This is a good sign, now how do I do that with the emulate command?
+
+ionic cordova emulate ios - command still works perfect. Had to run a couple of commands to update the config.xml file though
+* cordova plugin save
+* cordova platform rm ios
+* cordova platform add ios
+then I ran the emulation command, problem solved. 
+
+Ran command with ionic cordova emulate android --livereload --no-native-run
+
+This worked?
+
+tried to run ionic cordova emulate ios --livereload --no-native-run 
+
+ERROR: Failed to load webpage with error: Could not connect to the server
+
+SOLUTION: [ionic cordova build ios](https://stackoverflow.com/questions/26314005/ionic-failed-to-load-webpage-with-error-could-not-connect-to-the-server)
+
+ran ionic cordova emulate ios --livereload --no-native-run
+
+ERROR: the app won't live reload and so I think I need to run through the installation steps for ios just to make sure I have everything. 
+
+## iOS
+
+2. Install iOS cordova
+<-- CURRENT HEAD -->
+
+https://ionicframework.com/docs/developing/ios
+
+$ npm install -g ios-sim
+$ brew install ios-deploy
+$ ionic cordova prepare ios
+
+ionic cordova prepare ios - want to get it ready for emulation
+
+ionic cordova run ios -l --external
+
+ERROR: Failed to load webpage with error: Could not connect to the server
+
+[SOLUTION 1:](https://stackoverflow.com/questions/26314005/ionic-failed-to-load-webpage-with-error-could-not-connect-to-the-server)
+
+ionic cordova build ios
+
+ionic cordova run ios -l --external
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 2. Install Intercom
