@@ -2,16 +2,33 @@
 
 # Version Cheat Sheet
 
-| Name                     | Version     | Information    |
-| :---                     |    :----:   |          ---:  |
-| iOS Platform             | 6.2.0       | -              |
-| Android Platform         | 10.1.1      | -              |
-| text                |       | -              |
-| text                |       | -              |
+| Name                     | Version     | Information                  |
+| :---                     |    :----:   |          ---:                |
+| iOS Platform             | 6.2.0       | -                            |
+| Android Platform         | 10.1.1      | -                            |
+| Cordova CLI              | 11.0.0      | cordova plugin ionic webview |
+| cordova-ios              | 6.2.0       | -                            |
+| cordova-android          | 10.1.1      | -                            |
 | text                |       | -              |
 | text                |       | -              |
 | text                |       | -              |
 
+
+# Useful Commands
+
+`npm ls <package name>`
+
+`ionic info`
+`ionic cordova emulate --list`
+
+
+`$ sudo apt-get install gradle`
+
+
+// Display the JDK version
+`javac -version`
+// Display the JRE version
+java -version
 
 
 # Important Resources
@@ -24,8 +41,10 @@
 1. [Ionic Docs](https://ionicframework.com/docs/)
 2. [Cordova Docs](https://cordova.apache.org/docs/en/11.x/guide/overview/index.html)
 3. [Gradle Docs](https://docs.gradle.org/current/userguide/userguide.html)
-4. [Android Studio](https://developer.android.com/studio/intro)
-5. 
+4. [Xamarin.Android](https://docs.microsoft.com/en-us/xamarin/android/)
+5. [Android Studio](https://developer.android.com/studio/intro)
+6. [A full history of macOS (OS X) release dates and rates](https://robservatory.com/a-full-history-of-macos-os-x-release-dates-and-rates/)
+7. [Ionic Web View](https://github.com/ionic-team/cordova-plugin-ionic-webview)
 
 # GOTCHAS
 
@@ -33,7 +52,8 @@
 1. [resource-file](https://cordova.apache.org/docs/en/latest/config_ref/#resource-file) - This tag is currently only supported on cordova-ios@4.4.0 or greater and cordova-android@6.2.1 or greater. Run `cordova platforms ls` and check against version sheet above. 
 
 
-
+## Cordova
+1. Running `ionic cordova emulate --list` you'll see this error in the Android section. [ERR_UNSUPPORTED_API_LEVEL](https://github.com/ionic-team/native-run/wiki/Android-Errors#err_unsupported_api_level) `native-run` supports SDK version 31
 
 
 
@@ -176,10 +196,22 @@ ionic cordova build ios
 
 ionic cordova run ios -l --external
 
+ERROR: CONNECTION REFUSED 
+when I ran this command with `ionic cordova emulate android --livereload --no-native-run`
+then opened Android Studio I got the error
+Pressed the run button on pixel 4
+And then got the error above
+
+ERR_NO_TARGET: No target devices/emulators available.
+
+SOLUTION: You remove the API level that it doesn't support and also add in a phone that would support the level API. So I also created a new phone with the appropriate configurations.
 
 
+# FINAL
 
-
+Run these commands:
+* $ ionic cordova run android -l
+* $ ionic cordova run ios -l
 
 
 
